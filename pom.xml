@@ -71,11 +71,6 @@
           <artifactId>allure-junit-adaptor</artifactId>
           <version>${allure-junit-adaptor.version}</version>
       	</dependency>
-        <dependency>
-            <groupId>org.aspectj</groupId>
-            <artifactId>aspectjweaver</artifactId>
-            <version>${aspectj.version}</version>
-        </dependency>
   </dependencies>
   <build>
       <!--<pluginManagement>-->
@@ -162,6 +157,7 @@
                         <!--@{surefireArgLine}-->
                     </argLine>
                     <argLine>${surefireArgLine}</argLine>
+                    <argLine>-Xmx1024m -XX:MaxPermSize=256m</argLine>
                     <properties>
                         <property>
                             <name>listener</name>
@@ -175,7 +171,11 @@
                         <artifactId>surefire-junit47</artifactId>
                         <version>2.19.1</version>
                     </dependency>
-
+                    <dependency>
+                        <groupId>org.aspectj</groupId>
+                        <artifactId>aspectjweaver</artifactId>
+                        <version>${aspectj.version}</version>
+                    </dependency>
                 </dependencies>
             </plugin>
 

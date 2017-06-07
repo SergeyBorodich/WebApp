@@ -71,6 +71,11 @@
           <artifactId>allure-junit-adaptor</artifactId>
           <version>${allure-junit-adaptor.version}</version>
       	</dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>${aspectj.version}</version>
+        </dependency>
   </dependencies>
   <build>
       <!--<pluginManagement>-->
@@ -151,7 +156,7 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.19.1</version>
                 <configuration>
-                    <testFailureIgnore>false</testFailureIgnore>
+                    <testFailureIgnore>true</testFailureIgnore>
                     <argLine>
                         -javaagent:${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar
                         <!--@{surefireArgLine}-->
@@ -170,11 +175,7 @@
                         <artifactId>surefire-junit47</artifactId>
                         <version>2.19.1</version>
                     </dependency>
-                    <dependency>
-                        <groupId>org.aspectj</groupId>
-                        <artifactId>aspectjweaver</artifactId>
-                        <version>${aspectj.version}</version>
-                    </dependency>
+
                 </dependencies>
             </plugin>
 
